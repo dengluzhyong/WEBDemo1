@@ -1,0 +1,31 @@
+﻿@model MyContentModelView; 
+@using Humanizer; 
+@{
+    ViewData["title"] = "Mycontent List";
+}
+<div class="panel todo-panel panel-default">
+    <div class="panel-heading">@ViewData["title"]</div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td><input type="checkbox" class="done-checkbox" /></td>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Neirong</td>
+                <td>status</td>
+                <td>CreateTime</td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.myContents)
+        {
+            <tr>
+                <td><input type="checkbox" class="done-checkbox" /></td>
+                <td>@item.ID</td>
+                <td>@item.Title</td>
+                <td>@item.Neirong</td>
+                <td>@item.status</td>
+                <td>@item.CreateTime.Humanize()</td>
+            </tr>
+        }
+    </table>
+</div>
